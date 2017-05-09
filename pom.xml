@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- 指定当前pom的版本 -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- maven主项目的标识-->
+	<groupId>com.imooc.hello</groupId>
+	<!-- 模块名 -->
+	<artifactId>hello</artifactId>
+	<!-- 当前项目的版本号  大版本号-分支版本号-小版本号 -->
+	<version>0.0.1-SNAPSHOT</version>
+	<!-- maven项目的打包方式，一般是jar包，还可以是war，zip，pom等 -->
+	<packaging>jar</packaging>
+
+	<!-- 项目描述名 -->
+	<name>hello</name>
+	<!-- 项目地址 -->
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- 依赖列表 -->
+	<dependencies>
+		<!-- 依赖项,里面是坐标 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope> <!-- 依赖的范围 -->
+			<!-- scope范围有 
+			compile  默认情况，编译，运行，测试
+			provided  编译，测试。
+			runtime  编译，运行
+			test 测试
+			system  编译，测试 与本机相关，可移植性差
+			
+			-->
+		</dependency>
+	</dependencies>
+	
+	<!-- 对构件的行为提供支持 -->
+	<build>
+		<plugins><!-- 插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
