@@ -23,4 +23,12 @@
 			-Dversion=版本号
 			-Dpackage=代码所在的包名
 
-四、pom解析
+四、pom解析，见pom.xml
+五、创建webapp
+1、选择org.apache.maven里面的webapp。
+2、创建之后会有错误，是因为没有servlet的依赖，在pom.xml里面添加依赖
+3、之后检查文件路径是否正确，有src/main/java,src/main/resources,src/test/java,src/test/resources，没有的话就创建，不能创建的话就去navigator里面进行创建，然后再返回explorer试图在项目上右键选择maven/update。
+4、检查文件输出路径，在build path的source里面，输出分别是target.classes和test-target.classes
+5、将项目转化为web项目，选择properties，有project facets选项，进去勾选Dynamic web module。
+6、检查发布时部署的文件，properties里的Deployment Assembly，remove掉其中的test。
+7、此时就可以直接run on server了，如果配置好了tomcat的话。
